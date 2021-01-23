@@ -1,5 +1,6 @@
 
 .mapContainer{
+    margin-top: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr ;
 }
@@ -50,7 +51,7 @@
     padding: 30px;
     font-size: 15px;
     font-weight: bold;
-    color: rgb(27, 145, 27);
+    color: rgb(2, 0, 8);
 }
 
 #expectedTime{
@@ -68,11 +69,17 @@
 
 }
 
+.expDis{
+    font-weight: bold;
+    margin: 2%;
+    margin-top: 60px;
+}
+
 .orderNumber{
     font-weight: 30px;
     margin: 2%;
     font-size: 17px;
-    color:#7e7d73;
+    color:#fa0808;
 
 }
 
@@ -100,14 +107,14 @@
     font-weight: 30px;
     margin: 2%;
     font-size: 17px;
-    color:#7e7373;
+    color:#154647;
+    margin-top: 20px;
+    
 
 }
 
 .expected{
-    padding: 30px;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr ;
+    
 
 }
 
@@ -120,7 +127,7 @@
 }
 
 #mapid{
-    height: 90px;
+    height: 96.5px;
 }
 
 
@@ -155,6 +162,18 @@
 
   }
 
+
+  .orderInfo{
+    margin: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+
+  }
+
+  .total{
+        margin-top: 75px;
+
+  }
 
   
 

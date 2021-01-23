@@ -12,8 +12,8 @@ function MapContainer(props) {
         props.ordersStore.updateLocation()
     }, 10000);
 
-    const replaceOrder =async () =>{
-        const order =  await props.ordersStore.getNextOrder()
+    const replaceOrder = async () => {
+        const order = await props.ordersStore.getNextOrder()
         setNextOrder(order)
     }
     useEffect(() => {
@@ -21,6 +21,15 @@ function MapContainer(props) {
         props.ordersStore.getOrders()
         replaceOrder()
     }, [])
+
+    const timeConvert = function (n) {
+        var num = n;
+        var hours = (num / 60);
+        var rhours = Math.floor(hours);
+        var minutes = (hours - rhours) * 60;
+        var rminutes = Math.round(minutes);
+        return rhours + " hour(s) and " + rminutes + " minute(s).";
+    }
 
 
     return (
@@ -47,19 +56,27 @@ function MapContainer(props) {
                                     <div className='orderNum'>{props.ordersStore.totalReceived}</div>
                                 </div>
                             </div>
-                            <div className='approved'>Has Approved
-                            <Clock />
+                            <div className='approved'>
+                                <Clock />
                             </div>
 
                         </div>
-        
-                        <div id="expectedTime">
-                            <div className='expected'>
-                                <div className='expTime'>Expected Time: {props.ordersStore.distance} ,Total Time Workday : {props.ordersStore.time}</div>
-                                <div className='orderNumber'>Order Number: {nextOrder && nextOrder._id}</div>
-                                <div className='nextCustomer'>Next Customer: {nextOrder && nextOrder.name}</div>
 
+                        <div className='expected'>
+                            <div className='orderInfo'>
+                                <div className='nextCustomer'>Next Customer: {nextOrder && nextOrder.name}</div>
+                                <div className='nextCustomer'>ID: {nextOrder && nextOrder.id}</div>
+                                <div className='nextCustomer'>Phone Number: {nextOrder && nextOrder.phoneNumber}</div>
+                                <div className='nextCustomer'>Area: {nextOrder && nextOrder.area}</div>
                             </div>
+                            <div className='orderNumber'>Order Number: {nextOrder && nextOrder._id}</div>
+
+
+                            <div className='total'>
+                                <div className='expDis'>Total Distance:  {Math.floor(props.ordersStore.distance)}km</div>
+                                <div className='expTime'> Total Time Workday : {timeConvert(props.ordersStore.time * 60)}</div>
+                            </div>
+
                         </div>
 
                     </div>
