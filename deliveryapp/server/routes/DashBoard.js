@@ -1,5 +1,7 @@
 const express = require('express')
 const OrderDB = require('../models/OrdersDB')
+const Order = require('../models/Order')
+
 const router = express.Router()
 const DeliveryWorker = require('../models/DeliveryWorker')
 const Contact = require('../models/Contact')
@@ -46,15 +48,19 @@ router.delete('deleteorder', function(req, res){
     })
 })
 
-router.post('/assignOrder', function (req, res) {
+router.post('/assingnOrderTo', function (req, res) {
+    // id of the delivery worker  = >>>>> deliveryWorkerId as aa parameter 
+    // order as a parameter 
+    // 
+
     const order = new Order(req.body.order)
-    DeliveryWorker.updateOne({ userName: req.body.userName, password: req.body.password }, { $addToSet: { packages: order._id } }
+    DeliveryWorker.findByIdAndUpdate(req.body.deliveryWorkerId, { $addToSet: { packages: order._id } }
         , function (err, data) {
             if (err)
                 res.send(err)
             else {
                 order.save()
-                OrderDB.updateOne({ id: req.body._id }, { $set: { assignedTO: req.body.userName } }, function (err, data) {
+                OrderDB.findByIdAndUpdate( req.body.OrderDBid , { $set: { assignedTO: data.userName } }, function (err, data) {
                     if (err)
                         res.send(err)
                     else {
@@ -63,8 +69,7 @@ router.post('/assignOrder', function (req, res) {
                 })
             }
         })
+
 })
-
-
 
 module.exports = router

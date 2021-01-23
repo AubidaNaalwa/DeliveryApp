@@ -8,7 +8,7 @@ const order = new Schema({
     id : {type:String , required:true},
     area:{type:String , required:true},
     lat: {type:String , required:true},
-    lan: {type:String , required:true},
+    lan: {type:String , default:"34.947460"},
     received: {
         type: Boolean,
         default: false
