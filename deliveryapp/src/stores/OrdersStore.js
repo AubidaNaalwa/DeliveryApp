@@ -12,7 +12,11 @@ export default class OrdersStore {
         this.locations = []
         this.lat = 32.073582
         this.lan = 34.788052
+        this.distance = 0
+        this.time = 0
         makeObservable(this, {
+            distance: observable,
+            time: observable,
             lat: observable,
             lan: observable,
             orders: observable,
@@ -30,8 +34,14 @@ export default class OrdersStore {
             setLocalStorage: action,
             emptyLocalStorage: action,
             updateLocation: action,
-            getNextOrder : computed
+            getNextOrder : action,
+            updateDistTime: action
         })
+    }
+
+    updateDistTime(distance ,time){
+        this.distance = distance
+        this.time = time
     }
 
     checkLocalStorage() {
@@ -121,7 +131,8 @@ export default class OrdersStore {
         );
     }
 
-    get getNextOrder(){
+      getNextOrder = async ()=>{
+        await this.getOrders()
         let nextOrder
         let min={lat :0 ,lan:0}
         const ppp = this.orders.filter(o => !o.received).forEach(order =>{

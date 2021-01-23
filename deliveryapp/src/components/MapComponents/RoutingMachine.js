@@ -36,6 +36,13 @@ class Routing extends MapLayer {
       },
       addWaypoints: false
     }).addTo(map.leafletElement);
+
+    leafletElement.on('routesfound', (e)=> {
+      var routes = e.routes;
+      var summary = routes[0].summary;
+      this.props.updateDistTime(summary.totalDistance / 1000, summary.totalDistance / 80000)
+   });
+   
     return leafletElement.getPlan();
   }
 }

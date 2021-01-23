@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { observer, inject } from 'mobx-react'
 import '../styles/map.css';
 import LeafletMap from './MapComponents/LeafletMap'
+import Clock from './Clock'
 
 function MapContainer(props) {
 
@@ -10,10 +11,15 @@ function MapContainer(props) {
     setInterval(() => {
         props.ordersStore.updateLocation()
     }, 10000);
+
+    const replaceOrder =async () =>{
+        const order =  await props.ordersStore.getNextOrder()
+        setNextOrder(order)
+    }
     useEffect(() => {
         props.ordersStore.updateLocation()
         props.ordersStore.getOrders()
-        setNextOrder(props.ordersStore.getNextOrder)
+        replaceOrder()
     }, [])
 
 
@@ -42,14 +48,14 @@ function MapContainer(props) {
                                 </div>
                             </div>
                             <div className='approved'>Has Approved
-                                
+                            <Clock />
                             </div>
 
                         </div>
         
                         <div id="expectedTime">
                             <div className='expected'>
-                                <div className='expTime'>Expected Time:</div>
+                                <div className='expTime'>Expected Time: {props.ordersStore.distance} ,Total Time Workday : {props.ordersStore.time}</div>
                                 <div className='orderNumber'>Order Number: {nextOrder && nextOrder._id}</div>
                                 <div className='nextCustomer'>Next Customer: {nextOrder && nextOrder.name}</div>
 
