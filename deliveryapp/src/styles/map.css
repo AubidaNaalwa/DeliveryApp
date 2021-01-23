@@ -54,6 +54,10 @@
     color: rgb(2, 0, 8);
 }
 
+.approved:hover{
+    background-color: #154647;
+}
+
 #expectedTime{
     box-shadow: 1px 1px 3px;
     border-radius: 5px;
@@ -83,6 +87,30 @@
 
 }
 
+img {
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+    display: grid;
+    justify-content: end;
+    align-content: end;
+
+}
+
+.imgDel{  
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+    display: grid;
+    justify-content: end;
+    align-content: end;
+    margin-top: 70px;
+
+}
 
 .fa-check-circle{
     font-size: 150px;
@@ -171,8 +199,9 @@
   }
 
   .total{
-        margin-top: 75px;
-
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 2fr 1fr ;
   }
 
   

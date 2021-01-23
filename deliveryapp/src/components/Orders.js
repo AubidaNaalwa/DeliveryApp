@@ -103,6 +103,9 @@ function Orders(props) {
                                     trailColor: '#d6d6d6',
                                     backgroundColor: '#3e98c7',
                                 })} />
+                               
+                            <img className='imgDel' src='https://image.freepik.com/free-vector/delivery-service-person-with-mask_23-2148494581.jpg' />
+
                         </div>
 
                     </div>
