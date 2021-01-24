@@ -206,3 +206,38 @@ img {
 
   
 
+  element.style {
+    position: relative;
+}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+    -ms-touch-action: none;
+    touch-action: none;
+}
+.leaflet-container.leaflet-touch-drag {
+    -ms-touch-action: pinch-zoom;
+}
+.leaflet-container.leaflet-touch-zoom {
+    -ms-touch-action: pan-x pan-y;
+    touch-action: pan-x pan-y;
+}
+.leaflet-container {
+    height: 680%;
+    width: 100%;
+    border-radius: 5px;
+}
+.leaflet-container {
+    font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.leaflet-container {
+    background: #ddd;
+    outline: 0;
+}
+.leaflet-grab {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+}
+.leaflet-container {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: inherit;
+}
+

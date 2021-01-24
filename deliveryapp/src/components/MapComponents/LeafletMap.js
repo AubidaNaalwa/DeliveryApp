@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { Map, TileLayer } from "react-leaflet";
 import Routing from "./RoutingMachine";
 import { observer, inject } from 'mobx-react'
-import marker from './image/drowRanger.jpg';
-import L from "leaflet";
 class LeafletMap extends Component {
   state = {
     zoom: 10,

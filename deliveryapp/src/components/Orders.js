@@ -45,7 +45,7 @@ function Orders(props) {
                             onChange={handleSearch}
                         />
 
-                        <div class="dropdown dropdown-dark">
+                        <div className="dropdown dropdown-dark">
                             <select name="two" className="dropdown-select" value={select} onChange={handleSelect}>
                                 <option value="">Select…</option>
                                 <option value="name">Name</option>
