@@ -37,11 +37,11 @@ function MapContainer(props) {
             {props.ordersStore.locations.length > 0 ?
                 <div className='mapContainer'>
 
-                    <div className='mappp'>
+                    
                         <div id="mapid">
                             <LeafletMap locations={props.ordersStore.locations} />
                         </div>
-                    </div>
+                    
 
                     <div className='onMap'>
 

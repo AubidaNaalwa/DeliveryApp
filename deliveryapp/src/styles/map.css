@@ -141,10 +141,6 @@ img {
 
 }
 
-.expected{
-    
-
-}
 
 .orderNum{
     font-size: 100px;
@@ -156,6 +152,7 @@ img {
 
 #mapid{
     height: 96.5px;
+
 }
 
 
@@ -163,6 +160,8 @@ img {
     height: 680%;
     width: 100%;
     border-radius: 5px;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
   }
   
   .leaflet-top{
